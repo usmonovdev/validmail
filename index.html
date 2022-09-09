@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation email</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="input-group">
+            <label id="email-label">Email</label>
+            <input type="text" spellcheck="false" id="email-field" onkeyup="validEmail()">
+            <span id="email-error">error message</span>
+        </div>
+    </div>
+
+    <script>
+        let emailLabel = document.getElementById("email-label");
+        let emailField = document.getElementById("email-field");
+        let emailError = document.getElementById("email-error");
+
+        function validEmail() {
+            emailLabel.style.bottom = "40px"
+
+            if(!emailField.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+                emailError.innerHTML = "Plese enter a valid email"
+                emailField.style.borderBottomColor = "red"
+                return false
+            } else {
+                emailError.innerHTML = "";
+                emailField.style.borderBottomColor = "green"
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
